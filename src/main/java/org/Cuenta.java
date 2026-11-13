@@ -1,44 +1,57 @@
 package org;
-@jakarta.persistence.Entity
-@jakarta.persistence.Table(name = "Cuentas")
+
+import jakarta.persistence.*;
+
+import java.math.BigDecimal;
+
+@Entity
+@Table(name = "Cuentas")
 public class Cuenta {
-@jakarta.persistence.Id
-@jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-@jakarta.persistence.Column(name = "CuentaID", nullable = false)
-private java.lang.Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CuentaID", nullable = false)
+    private Integer id;
 
-@jakarta.persistence.ManyToOne(fetch = jakarta.persistence.FetchType.LAZY)
-@jakarta.persistence.JoinColumn(name = "ClienteID")
-private org.Cliente clienteID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ClienteID")
+    private Cliente clienteID;
 
-@jakarta.persistence.Column(name = "TipoCuenta", length = 50)
-private java.lang.String tipoCuenta;
+    @Column(name = "TipoCuenta", length = 50)
+    private String tipoCuenta;
 
-@jakarta.persistence.Column(name = "Saldo", precision = 10, scale = 2)
-private java.math.BigDecimal saldo;
+    @Column(name = "Saldo", precision = 10, scale = 2)
+    private BigDecimal saldo;
 
-public java.lang.Integer getId() {
-  return id;
-}public void setId(java.lang.Integer id) {
-  this.id = id;
-}
+    public Integer getId() {
+        return id;
+    }
 
-public org.Cliente getClienteID() {
-  return clienteID;
-}public void setClienteID(org.Cliente clienteID) {
-  this.clienteID = clienteID;
-}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-public java.lang.String getTipoCuenta() {
-  return tipoCuenta;
-}public void setTipoCuenta(java.lang.String tipoCuenta) {
-  this.tipoCuenta = tipoCuenta;
-}
+    public Cliente getClienteID() {
+        return clienteID;
+    }
 
-public java.math.BigDecimal getSaldo() {
-  return saldo;
-}public void setSaldo(java.math.BigDecimal saldo) {
-  this.saldo = saldo;
-}
+    public void setClienteID(Cliente clienteID) {
+        this.clienteID = clienteID;
+    }
+
+    public String getTipoCuenta() {
+        return tipoCuenta;
+    }
+
+    public void setTipoCuenta(String tipoCuenta) {
+        this.tipoCuenta = tipoCuenta;
+    }
+
+    public BigDecimal getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(BigDecimal saldo) {
+        this.saldo = saldo;
+    }
 
 }

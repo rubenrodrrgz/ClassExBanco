@@ -1,61 +1,79 @@
 package org;
-@jakarta.persistence.Entity
-@jakarta.persistence.Table(name = "Clientes")
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Clientes")
+@NamedQueries({
+        @NamedQuery(name = "Cliente.cogerTodosLosUsuarios", query = "select c from Cliente c ")
+})
 public class Cliente {
-@jakarta.persistence.Id
-@jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-@jakarta.persistence.Column(name = "ClienteID", nullable = false)
-private java.lang.Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ClienteID", nullable = false)
+    private Integer id;
 
-@jakarta.persistence.Column(name = "Nombre", length = 50)
-private java.lang.String nombre;
+    @Column(name = "Nombre", length = 50)
+    private String nombre;
 
-@jakarta.persistence.Column(name = "Apellido", length = 50)
-private java.lang.String apellido;
+    @Column(name = "Apellido", length = 50)
+    private String apellido;
 
-@jakarta.persistence.Column(name = "Direccion", length = 100)
-private java.lang.String direccion;
+    @Column(name = "Direccion", length = 100)
+    private String direccion;
 
-@jakarta.persistence.Column(name = "Email", length = 100)
-private java.lang.String email;
+    @Column(name = "Email", length = 100)
+    private String email;
 
-@jakarta.persistence.Column(name = "Telefono", length = 15)
-private java.lang.String telefono;
+    @Column(name = "Telefono", length = 15)
+    private String telefono;
 
-public java.lang.Integer getId() {
-  return id;
-}public void setId(java.lang.Integer id) {
-  this.id = id;
-}
+    public Integer getId() {
+        return id;
+    }
 
-public java.lang.String getNombre() {
-  return nombre;
-}public void setNombre(java.lang.String nombre) {
-  this.nombre = nombre;
-}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-public java.lang.String getApellido() {
-  return apellido;
-}public void setApellido(java.lang.String apellido) {
-  this.apellido = apellido;
-}
+    public String getNombre() {
+        return nombre;
+    }
 
-public java.lang.String getDireccion() {
-  return direccion;
-}public void setDireccion(java.lang.String direccion) {
-  this.direccion = direccion;
-}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-public java.lang.String getEmail() {
-  return email;
-}public void setEmail(java.lang.String email) {
-  this.email = email;
-}
+    public String getApellido() {
+        return apellido;
+    }
 
-public java.lang.String getTelefono() {
-  return telefono;
-}public void setTelefono(java.lang.String telefono) {
-  this.telefono = telefono;
-}
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
 }
