@@ -5,7 +5,10 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "Clientes")
 @NamedQueries({
-        @NamedQuery(name = "Cliente.cogerTodosLosUsuarios", query = "select c from Cliente c ")
+        @NamedQuery(name = "Cliente.cogerTodosLosUsuarios", query = "select c from Cliente c "),
+        @NamedQuery(name="Cliente.insertarCliente", query="insert into Cliente (nombre, apellido, direccion, email, telefono) values (:nombre, :apellido, :direccion, :email, :telefono)"),
+        @NamedQuery(name = "Cliente.buscarPorId", query = "select c from Cliente c where c.id = :id")
+
 })
 public class Cliente {
     @Id
